@@ -48,7 +48,7 @@
 		</div>
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	    	<a class="navbar-brand" href="index.html"><span class="flaticon-pawprint-1 mr-2"></span>PawPal</a>
+	    	<a class="navbar-brand" ><span class="flaticon-pawprint-1 mr-2"></span>PawPal</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="fa fa-bars"></span> Menu
 	      </button>
@@ -936,7 +936,22 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
 
-
+  <script>
+	document.addEventListener("DOMContentLoaded", function () {
+	  let currentLocation = window.location.pathname.split("/").pop(); // Get current page file name
+	  let menuItems = document.querySelectorAll(".navbar-nav .nav-item");
+  
+	  menuItems.forEach((item) => {
+		let link = item.querySelector("a");
+		if (link.getAttribute("href") === currentLocation) {
+		  item.classList.add("active"); // Add active class to the current page menu item
+		} else {
+		  item.classList.remove("active"); // Remove active class from other items
+		}
+	  });
+	});
+  </script>
+  
     
   </body>
 </html>
